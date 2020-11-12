@@ -27,12 +27,36 @@ validates if a queen can attack another one.
 
 const queens = [
   {
-    x: 0,
-    y: 1,
+    x: 1,
+    y: 0,
   },
   {
     x: 4,
+    y: 1,
+  },
+  {
+    x: 6,
+    y: 2,
+  },
+  {
+    x: 3,
+    y: 3,
+  },
+  {
+    x: 0,
+    y: 4,
+  },
+  {
+    x: 7,
     y: 5,
+  },
+  {
+    x: 5,
+    y: 6,
+  },
+  {
+    x: 2,
+    y: 7,
   },
 ];
 
@@ -54,6 +78,10 @@ const validatePerpendicular = (queens: Queen[]) => {
 
   for (const queen of queens) {
     if (visited['x' + queen.x] || visited['y' + queen.y]) {
+      console.log({
+        visited,
+        queen,
+      });
       valid = false;
       break;
     }
@@ -72,6 +100,7 @@ const validateDiagonal = (queens: Queen[]) => {
   for (const queen of queens) {
     const currentQueen = 'x' + queen.x + 'y' + queen.y;
     if (visited[currentQueen]) {
+      console.log({ visited, queen });
       valid = false;
       break;
     }
@@ -93,14 +122,12 @@ const generateDiagonals = (queen: Queen) => {
   };
 
   for (const direction of Object.keys(diagonalGenerationMap)) {
-    // console.log('\n' + direction);
     let generateDiagonals = true;
     let currentX = queen.x;
     let currentY = queen.y;
 
     while (generateDiagonals) {
       if (currentX >= 0 && currentX <= 7 && currentY >= 0 && currentY <= 7) {
-        // console.log({ currentX, currentY });
         possibleDiagonals['x' + currentX + 'y' + currentY] = true;
 
         currentX = currentX + diagonalGenerationMap[direction][0];
