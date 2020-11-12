@@ -18,4 +18,4 @@ A repo to keep track of all algorithm problems I stumbled upon and solved
 
 ## List
 
-- [8 Queens](https://github.com/Lucas-Fonte/algorithms/blob/main/chess_queen.ts)
+- [8 Queens](https://github.com/Lucas-Fonte/algorithms/blob/main/8_queens.ts)
